@@ -112,6 +112,11 @@ All require packages should now be installed and configured. We now need to run 
 
 ``` bash
 sudo atcd
+# 如果对外wlan0, 对内使用 eth0 则如下配置
+sudo atcd --thrift-host 127.0.0.1 --atcd-wan wlan0  --atcd-lan eth0 
+# 如果对内wlan0, 对外使用 eth0 则如下配置
+sudo atcd --thrift-host 127.0.0.1 --atcd-wan eth0  --atcd-lan wlan0 
+
 ```
 Supposing `eth0` is your interface to connect to the internet and `eth1`, your interface to connect to your lan, this should just work. If your setting is slightly different, use the command line arguments `--atcd-wan` and `--atcd-lan` to adapt to your configuration.
 
